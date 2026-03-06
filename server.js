@@ -4,8 +4,6 @@ const port = 3000;
 const logger = require('./logger');
 const I18n = require('./i18n');
 const baseUrl = 'https://all.api.radio-browser.info';
-const env = require('dotenv')
-env.config()
 
 const defaultLang = process.env.DEFAULT_LANGUAGE || 'en';
 const i18n = new I18n(defaultLang);
@@ -450,3 +448,4 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
