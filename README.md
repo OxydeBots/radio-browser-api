@@ -11,19 +11,19 @@ The server supports multi-language for all messages and errors. **Currently supp
 #### At Server Startup
 ```bash
 # English (default)
-node index.js
+node server.js
 
 # French
-set DEFAULT_LANGUAGE=fr& node index.js
+set DEFAULT_LANGUAGE=fr& node server.js
 
 # Spanish
-set DEFAULT_LANGUAGE=es& node index.js
+set DEFAULT_LANGUAGE=es& node server.js
 
 # German
-set DEFAULT_LANGUAGE=de& node index.js
+set DEFAULT_LANGUAGE=de& node server.js
 
 # Italian
-set DEFAULT_LANGUAGE=it& node index.js
+set DEFAULT_LANGUAGE=it& node server.js
 ```
 
 #### Per HTTP Request
@@ -42,7 +42,7 @@ curl http://localhost:3000/countries?lang=pt
 
 ## Configuration
 
-- **IP Whitelist**: Modify the `allowedIPs` array in `index.js` to authorize only certain IP addresses. By default, localhost is allowed.
+- **IP Whitelist**: Modify the `allowedIPs` array in `server.js` to authorize only certain IP addresses. By default, localhost is allowed.
 - **Default Language**: Set `DEFAULT_LANGUAGE` as an environment variable or modify `.env`
 
 ## Security
@@ -54,7 +54,7 @@ curl http://localhost:3000/countries?lang=pt
 1. Clone or download the project.
 2. Install dependencies: `npm i`
 3. Rename .env.example by .env
-4. Start the server: `node index.js`
+4. Start the server: `node server.js`
 
 The server will run on `http://localhost:3000`.
 
@@ -155,7 +155,7 @@ GET /states/france?lang=es
 
 ## Security
 
-- The API uses an **IP whitelist** to restrict access. Configure `allowedIPs` in `index.js` to add authorized IPs.
+- The API uses an **IP whitelist** to restrict access. Configure `allowedIPs` in `server.js` to add authorized IPs.
   - Default: `127.0.0.1` (localhost) and `::1` (IPv6 localhost)
   - To find your IP: https://www.mon-ip.com/
 - **CORS** is enabled for cross-origin requests
@@ -181,5 +181,6 @@ Translation files are stored in the `languages/` folder:
 
 
 Each file contains messages for all endpoints and errors.</content>
+
 
 
