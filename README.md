@@ -177,7 +177,9 @@ Translation files are stored in the `languages/` folder:
 - `languages/es.json` - Spanish
 - `languages/de.json` - German
 - `languages/it.json` - Italian
+- `languages/pt.json` - Portugal
 
 
 Each file contains messages for all endpoints and errors.</content>
+
 
