@@ -1,0 +1,37 @@
+{
+  "server": {
+    "started": "Serveur lancé sur http://localhost:{port}",
+    "health_check": "Erreur lors du health check: {error}"
+  },
+  "auth": {
+    "access_denied": "Accès refusé pour l'IP : {ip}",
+    "access_allowed": "Accès autorisé pour l'IP : {ip}"
+  },
+  "stations": {
+    "search_error": "Erreur lors de la recherche de stations: {error}",
+    "search_all_error": "Erreur lors de la récupération de toutes les stations: {error}",
+    "search_by_country_error": "Erreur lors de la récupération des stations par pays: {error}",
+    "search_by_name_error": "Erreur lors de la recherche de stations: {error}",
+    "search_by_tag_error": "Erreur lors de la récupération des stations par tag: {error}",
+    "search_by_uuid_error": "Erreur lors de la récupération de la station par UUID: {error}",
+    "topvote_error": "Erreur lors de la récupération des stations par vote: {error}",
+    "topclick_error": "Erreur lors de la récupération des stations par clic: {error}",
+    "lastchange_error": "Erreur lors de la récupération des stations par modification: {error}",
+    "lastclick_error": "Erreur lors de la récupération des stations par clic: {error}",
+    "votes_error": "Erreur lors de la récupération des votes: {error}",
+    "check_error": "Erreur lors de la vérification de la station: {error}",
+    "changed_error": "Erreur lors de la récupération des stations modifiées: {error}",
+    "click_error": "Erreur lors de l'enregistrement du clic: {error}",
+    "vote_error": "Erreur lors du vote pour la station: {error}"
+  },
+  "metadata": {
+    "countries_error": "Erreur lors de la récupération des pays: {error}",
+    "tags_error": "Erreur lors de la récupération des tags: {error}",
+    "languages_error": "Erreur lors de la récupération des langues: {error}",
+    "states_error": "Erreur lors de la récupération des états: {error}",
+    "codes_error": "Erreur lors de la récupération des codes de pays: {error}"
+  },
+  "http": {
+    "error_prefix": "Erreur HTTP ! status: {status}"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "server": {
+    "started": "Server running at http://localhost:{port}",
+    "health_check": "Error during health check: {error}"
+  },
+  "auth": {
+    "access_denied": "Access denied for IP: {ip}",
+    "access_allowed": "Access allowed for IP: {ip}"
+  },
+  "stations": {
+    "search_error": "Error while searching for stations: {error}",
+    "search_all_error": "Error retrieving all stations: {error}",
+    "search_by_country_error": "Error retrieving stations by country: {error}",
+    "search_by_name_error": "Error while searching for stations: {error}",
+    "search_by_tag_error": "Error retrieving stations by tag: {error}",
+    "search_by_uuid_error": "Error retrieving station by UUID: {error}",
+    "topvote_error": "Error retrieving stations by vote: {error}",
+    "topclick_error": "Error retrieving stations by click: {error}",
+    "lastchange_error": "Error retrieving modified stations: {error}",
+    "lastclick_error": "Error retrieving stations by click: {error}",
+    "votes_error": "Error retrieving votes: {error}",
+    "check_error": "Error checking station: {error}",
+    "changed_error": "Error retrieving modified stations: {error}",
+    "click_error": "Error recording click: {error}",
+    "vote_error": "Error voting for station: {error}"
+  },
+  "metadata": {
+    "countries_error": "Error retrieving countries: {error}",
+    "tags_error": "Error retrieving tags: {error}",
+    "languages_error": "Error retrieving languages: {error}",
+    "states_error": "Error retrieving states: {error}",
+    "codes_error": "Error retrieving country codes: {error}"
+  },
+  "http": {
+    "error_prefix": "HTTP Error! status: {status}"
+  }
+}

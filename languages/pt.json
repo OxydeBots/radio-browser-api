@@ -1,0 +1,37 @@
+{
+  "server": {
+    "started": "Servidor executando em http://localhost:{port}",
+    "health_check": "Erro durante a verificação de saúde: {error}"
+  },
+  "auth": {
+    "access_denied": "Acesso negado para IP: {ip}",
+    "access_allowed": "Acesso permitido para IP: {ip}"
+  },
+  "stations": {
+    "search_error": "Erro ao pesquisar estações: {error}",
+    "search_all_error": "Erro ao recuperar todas as estações: {error}",
+    "search_by_country_error": "Erro ao recuperar estações por país: {error}",
+    "search_by_name_error": "Erro ao pesquisar estações: {error}",
+    "search_by_tag_error": "Erro ao recuperar estações por tag: {error}",
+    "search_by_uuid_error": "Erro ao recuperar estação por UUID: {error}",
+    "topvote_error": "Erro ao recuperar estações por voto: {error}",
+    "topclick_error": "Erro ao recuperar estações por clique: {error}",
+    "lastchange_error": "Erro ao recuperar estações modificadas: {error}",
+    "lastclick_error": "Erro ao recuperar estações por clique: {error}",
+    "votes_error": "Erro ao recuperar votos: {error}",
+    "check_error": "Erro ao verificar estação: {error}",
+    "changed_error": "Erro ao recuperar estações modificadas: {error}",
+    "click_error": "Erro ao registrar clique: {error}",
+    "vote_error": "Erro ao votar na estação: {error}"
+  },
+  "metadata": {
+    "countries_error": "Erro ao recuperar países: {error}",
+    "tags_error": "Erro ao recuperar tags: {error}",
+    "languages_error": "Erro ao recuperar idiomas: {error}",
+    "states_error": "Erro ao recuperar estados: {error}",
+    "codes_error": "Erro ao recuperar códigos de país: {error}"
+  },
+  "http": {
+    "error_prefix": "Erro HTTP! status: {status}"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "server": {
+    "started": "Server läuft auf http://localhost:{port}",
+    "health_check": "Fehler bei der Integritätsprüfung: {error}"
+  },
+  "auth": {
+    "access_denied": "Zugriff verweigert für IP: {ip}",
+    "access_allowed": "Zugriff erlaubt für IP: {ip}"
+  },
+  "stations": {
+    "search_error": "Fehler beim Suchen nach Stationen: {error}",
+    "search_all_error": "Fehler beim Abrufen aller Stationen: {error}",
+    "search_by_country_error": "Fehler beim Abrufen von Stationen nach Land: {error}",
+    "search_by_name_error": "Fehler beim Suchen nach Stationen: {error}",
+    "search_by_tag_error": "Fehler beim Abrufen von Stationen nach Tag: {error}",
+    "search_by_uuid_error": "Fehler beim Abrufen der Station nach UUID: {error}",
+    "topvote_error": "Fehler beim Abrufen von Stationen nach Abstimmung: {error}",
+    "topclick_error": "Fehler beim Abrufen von Stationen nach Klick: {error}",
+    "lastchange_error": "Fehler beim Abrufen geänderter Stationen: {error}",
+    "lastclick_error": "Fehler beim Abrufen von Stationen nach Klick: {error}",
+    "votes_error": "Fehler beim Abrufen von Stimmen: {error}",
+    "check_error": "Fehler beim Überprüfen der Station: {error}",
+    "changed_error": "Fehler beim Abrufen geänderter Stationen: {error}",
+    "click_error": "Fehler beim Aufzeichnen des Klicks: {error}",
+    "vote_error": "Fehler beim Abstimmen für die Station: {error}"
+  },
+  "metadata": {
+    "countries_error": "Fehler beim Abrufen der Länder: {error}",
+    "tags_error": "Fehler beim Abrufen von Tags: {error}",
+    "languages_error": "Fehler beim Abrufen von Sprachen: {error}",
+    "states_error": "Fehler beim Abrufen von Bundesländern: {error}",
+    "codes_error": "Fehler beim Abrufen von Ländercodes: {error}"
+  },
+  "http": {
+    "error_prefix": "HTTP-Fehler! Status: {status}"
+  }
+}
