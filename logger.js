@@ -1,6 +1,5 @@
 const colors = require("colors/safe");
 const moment = require("moment");
-const env = require("dotenv").config();
 
 moment.locale(process.env.DEFAULT_LOCALE || "en");
 
@@ -29,4 +28,5 @@ module.exports = class Logger {
     }
   }
 };
+
 
