@@ -4,7 +4,7 @@ This Node.js API with Express acts as a proxy for the radio-browser.info API, pr
 
 ## 🌍 Multi-Language (i18n)
 
-The server supports multi-language for all messages and errors. **Currently supported:** English (en), French (fr), Spanish (es), German (de), Italian (it).
+The server supports multi-language for all messages and errors. **Currently supported:** English (en), French (fr), Spanish (es), German (de), Italian (it), Portugal (pt).
 
 ### Language Configuration
 
@@ -180,3 +180,4 @@ Translation files are stored in the `languages/` folder:
 
 
 Each file contains messages for all endpoints and errors.</content>
+
