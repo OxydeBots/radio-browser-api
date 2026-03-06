@@ -43,7 +43,7 @@ curl http://localhost:3000/countries?lang=pt
 ## Configuration
 
 - **IP Whitelist**: Modify the `allowedIPs` array in `index.js` to authorize only certain IP addresses. By default, localhost is allowed.
-- **Default Language**: Set `DEFAULT_LANGUAGE` as an environment variable or modify `config.i18n.js`
+- **Default Language**: Set `DEFAULT_LANGUAGE` as an environment variable or modify `.env`
 
 ## Security
 
@@ -53,7 +53,8 @@ curl http://localhost:3000/countries?lang=pt
 
 1. Clone or download the project.
 2. Install dependencies: `npm i`
-3. Start the server: `node index.js`
+3. Rename .env.example by .env
+4. Start the server: `node index.js`
 
 The server will run on `http://localhost:3000`.
 
@@ -176,5 +177,6 @@ Translation files are stored in the `languages/` folder:
 - `languages/es.json` - Spanish
 - `languages/de.json` - German
 - `languages/it.json` - Italian
+
 
 Each file contains messages for all endpoints and errors.</content>
