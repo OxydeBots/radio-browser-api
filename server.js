@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const logger = require('./logger');
 const I18n = require('./i18n');
 const baseUrl = 'https://all.api.radio-browser.info';
@@ -431,8 +430,8 @@ app.post('/stations/vote/:uuid', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  logger.log(i18n.get('server.started', { port: port }), 'Login');
+app.listen(process.env.PORT, () => {
+  logger.log(i18n.get('server.started', { port: process.env.PORT }), 'Login');
 });
 
 // Global error handler
@@ -448,4 +447,5 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
