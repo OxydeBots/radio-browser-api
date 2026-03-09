@@ -4,7 +4,8 @@ const logger = require('./logger');
 const I18n = require('./i18n');
 const baseUrl = 'https://all.api.radio-browser.info';
 const port = 3000;
-const defaultLang = process.env.DEFAULT_LANGUAGE || 'en';
+const env = require('dotenv').config()
+const defaultLang = env.parsed.DEFAULT_LANGUAGE || 'en';
 const i18n = new I18n(defaultLang);
 
 // Server Statistics
@@ -18,13 +19,6 @@ let serverStats = {
 
 // IP whitelist configuration (add allowed IPs)
 const allowedIPs = ['127.0.0.1', '::1', '::ffff:127.0.0.1']; // Examples: localhost IPv4 and IPv6
-
-// Middleware to set language from query parameter
-app.use((req, res, next) => {
-  const lang = process.env.DEFAULT_LANGUAGE || 'en';
-  i18n.setLanguage(lang);
-  next();
-});
 
 // Middleware to verify IP whitelist
 app.use((req, res, next) => {
@@ -447,6 +441,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
