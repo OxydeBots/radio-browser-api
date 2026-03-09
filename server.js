@@ -22,7 +22,7 @@ const allowedIPs = env.parsed.ALLOWED_IPS || ['127.0.0.1', '::1', '::ffff:127.0.
 
 // Middleware to verify IP whitelist
 app.use((req, res, next) => {
-  const clientIP = req.ip || req.connection.remoteAddress || req.socket.remoteAddress;
+  const clientIP = req.ip || req.socket.remoteAddress;
   if (!allowedIPs.includes(clientIP)) {
     logger.log(i18n.get('auth.access_denied', { ip: clientIP }), 'Denied');
     serverStats.deniedRequests++;
@@ -441,6 +441,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
