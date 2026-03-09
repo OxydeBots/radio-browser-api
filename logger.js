@@ -1,8 +1,6 @@
 const colors = require("colors/safe");
 const moment = require("moment");
 
-moment.locale(process.env.DEFAULT_LOCALE || "en");
-
 module.exports = class Logger {
   static log(content, type = "log") {
     const date = moment().format("DD-MM-YYYY HH:mm:ss");
@@ -28,5 +26,6 @@ module.exports = class Logger {
     }
   }
 };
+
 
 
