@@ -98,11 +98,11 @@ The server will run on `http://localhost:3000`.
 
 ### Basic Search
 ```bash
-# Search for NRJ in France
+# Search for NRJ in France example
 GET /stations/search?name=nrj&countrycode=FR
 
-# Search by simple name
-GET /stations/search/nrj?lang=fr
+# Search by simple name (name to replace a radio)
+GET /stations/search/name?lang=fr
 
 # Search within a specific country
 GET /stations/country/fr/search/nrj?lang=es
@@ -181,6 +181,7 @@ Translation files are stored in the `languages/` folder:
 
 
 Each file contains messages for all endpoints and errors.</content>
+
 
 
 
