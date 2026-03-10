@@ -20,7 +20,7 @@ let serverStats = {
 // IP whitelist configuration (add allowed IPs)
 const allowedIPs = env.parsed.ALLOWED_IPS || ['127.0.0.1', '::1', '::ffff:127.0.0.1'] // Examples: localhost IPv4 and IPv6
 
-const UserAgent = env.parsed.USER_AGENT || UserAgent;
+const UserAgent = env.parsed.USER_AGENT || 'Oxyde_Bots/1.0';
 
 // Middleware to verify IP whitelist
 app.use((req, res, next) => {
@@ -443,6 +443,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
