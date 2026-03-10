@@ -20,6 +20,8 @@ let serverStats = {
 // IP whitelist configuration (add allowed IPs)
 const allowedIPs = env.parsed.ALLOWED_IPS || ['127.0.0.1', '::1', '::ffff:127.0.0.1'] // Examples: localhost IPv4 and IPv6
 
+const UserAgent = env.parsed.USER_AGENT || UserAgent;
+
 // Middleware to verify IP whitelist
 app.use((req, res, next) => {
   const clientIP = req.ip || req.socket.remoteAddress;
@@ -61,7 +63,7 @@ app.get('/health', async (req, res) => {
   try {
     // Test external API connection
     const externalApiTest = await fetch(`${baseUrl}/json/countries`, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     }).then(r => r.ok).catch(() => false);
 
     const memUsage = process.memoryUsage();
@@ -110,7 +112,7 @@ app.get('/stations/search', async (req, res) => {
     const queryParams = new URLSearchParams(req.query).toString();
     const url = `${baseUrl}/json/stations/search?${queryParams}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -127,7 +129,7 @@ app.get('/stations/search/:name', async (req, res) => {
     const { name } = req.params;
     const url = `${baseUrl}/json/stations/search?name=${encodeURIComponent(name)}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -143,7 +145,7 @@ app.get('/stations', async (req, res) => {
   try {
     const url = `${baseUrl}/json/stations`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -160,7 +162,7 @@ app.get('/stations/bycountry/:country', async (req, res) => {
     const { country } = req.params;
     const url = `${baseUrl}/json/stations/bycountry/${country}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -177,7 +179,7 @@ app.get('/stations/country/:country/search/:name', async (req, res) => {
     const { country, name } = req.params;
     const url = `${baseUrl}/json/stations/search?name=${encodeURIComponent(name)}&countrycode=${encodeURIComponent(country.toUpperCase())}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -194,7 +196,7 @@ app.get('/stations/bytag/:tag', async (req, res) => {
     const { tag } = req.params;
     const url = `${baseUrl}/json/stations/bytag/${tag}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -211,7 +213,7 @@ app.get('/stations/byuuid/:uuid', async (req, res) => {
     const { uuid } = req.params;
     const url = `${baseUrl}/json/stations/byuuid/${uuid}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -227,7 +229,7 @@ app.get('/stations/topvote', async (req, res) => {
   try {
     const url = `${baseUrl}/json/stations/topvote`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -243,7 +245,7 @@ app.get('/stations/topclick', async (req, res) => {
   try {
     const url = `${baseUrl}/json/stations/topclick`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -259,7 +261,7 @@ app.get('/stations/lastchange', async (req, res) => {
   try {
     const url = `${baseUrl}/json/stations/lastchange`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -275,7 +277,7 @@ app.get('/stations/lastclick', async (req, res) => {
   try {
     const url = `${baseUrl}/json/stations/lastclick`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -291,7 +293,7 @@ app.get('/countries', async (req, res) => {
   try {
     const url = `${baseUrl}/json/countries`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -307,7 +309,7 @@ app.get('/tags', async (req, res) => {
   try {
     const url = `${baseUrl}/json/tags`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -323,7 +325,7 @@ app.get('/languages', async (req, res) => {
   try {
     const url = `${baseUrl}/json/languages`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -340,7 +342,7 @@ app.get('/states/:country', async (req, res) => {
     const { country } = req.params;
     const url = `${baseUrl}/json/states/${country}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -359,7 +361,7 @@ app.get('/stations/votes/:uuid', async (req, res) => {
     const { uuid } = req.params;
     const url = `${baseUrl}/json/votes/${uuid}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -376,7 +378,7 @@ app.get('/stations/check/:uuid', async (req, res) => {
     const { uuid } = req.params;
     const url = `${baseUrl}/json/check/${uuid}`;
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -395,7 +397,7 @@ app.post('/stations/click/:uuid', async (req, res) => {
     const url = `${baseUrl}/json/click/${uuid}`;
     const response = await fetch(url, {
       method: 'POST',
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -413,7 +415,7 @@ app.post('/stations/vote/:uuid', async (req, res) => {
     const url = `${baseUrl}/json/vote/${uuid}`;
     const response = await fetch(url, {
       method: 'POST',
-      headers: { 'User-Agent': 'Oxyde_Bots/1.0' }
+      headers: { 'User-Agent': UserAgent }
     });
     if (!response.ok) throw new Error(i18n.get('http.error_prefix', { status: response.status }));
     const data = await response.json();
@@ -441,6 +443,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
