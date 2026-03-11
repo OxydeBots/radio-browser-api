@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 // Logging middleware
 app.use((req, res, next) => {
-  logger.log(`${req.method} ${req.url} from ${req.ip || req.connection.remoteAddress}`, 'Logs');
+  logger.log(`${req.method} ${req.url} from ${req.ip || req.socket.remoteAddress}`, 'Logs');
   
   // Capture the response status code
   res.on('finish', () => {
@@ -443,6 +443,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
