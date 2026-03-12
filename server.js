@@ -69,13 +69,13 @@ app.get('/health', async (req, res) => {
     const memUsage = process.memoryUsage();
     const uptime = process.uptime();
     const now = new Date();
-    
+    const localreplace = env.parsed.DEFAULT_LOCALE || 'en'
     const health = {
       status: 'OK',
-      timestamp: now.toISOString(),
+      timestamp: now.toLocaleString(localreplace.toUpperCase()),
       server: {
         uptime: Math.floor(uptime),
-        startTime: serverStats.startTime.toISOString(),
+        startTime: serverStats.startTime.toLocaleDateString(localreplace.toUpperCase()) + ' ' + serverStats.startTime.toLocaleTimeString(localreplace),
         runtime: `${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s`,
         nodeVersion: process.version,
         platform: process.platform
@@ -443,6 +443,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
