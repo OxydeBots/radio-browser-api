@@ -28,7 +28,8 @@ class I18n {
       });
        logger.log(`✓ Loaded languages: ${this.availableLanguages.join(', ')}`, 'Loading');
     } catch (err) {
-      console.error('Error loading language files:', err.message);
+     logger.log('Error loading language files:', 'Error');
+    logger.log(err.message, 'Error');;
     }
   }
 
@@ -38,7 +39,7 @@ class I18n {
       this.currentLanguage = lang;
       return true;
     } else {
-      console.warn(`Language "${lang}" not available. Using default: ${this.defaultLanguage}`);
+      logger.log(`Language "${lang}" not available. Using default: ${this.defaultLanguage}`, 'Denied');
       this.currentLanguage = this.defaultLanguage;
       return false;
     }
@@ -82,3 +83,4 @@ class I18n {
 }
 
 module.exports = I18n;
+
