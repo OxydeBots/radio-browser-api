@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   if (!allowedIPs.includes(clientIP)) {
     logger.log(i18n.get('auth.access_denied', { ip: clientIP }), 'Denied');
     serverStats.deniedRequests++;
-    return res.status(403).json({ error: i18n.get('auth.access_denied') });
+    return res.status(403).json({ error: i18n.get('auth.access_denied', { ip: clientIP }) });
   }
   logger.log(i18n.get('auth.access_allowed', { ip: clientIP }), 'Logs');
   serverStats.totalRequests++;
@@ -442,6 +442,7 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
     console.error(reason);
 })
+
 
 
 
