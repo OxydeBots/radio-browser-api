@@ -4,6 +4,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:dist": "node dist/server.js",
+    "build:obfuscate": "npm run build:dist",
+    "build:dist": "node scripts/build-dist.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oxyde",
@@ -14,5 +17,9 @@
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "moment": "^2.30.1"
+  }
+  ,
+  "devDependencies": {
+    "javascript-obfuscator": "^4.0.0"
   }
 }
