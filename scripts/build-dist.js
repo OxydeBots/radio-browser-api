@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const logger = require('../logger')
 
 const projectRoot = path.resolve(__dirname, '..');
 const distRoot = path.join(projectRoot, 'dist');
@@ -37,7 +38,7 @@ function findJsFiles(dir, files = []){
 }
 
 try{
-  console.log('Preparing dist folder...');
+  logger.log('Preparing dist folder...', 'Loading');
   mkdirp(distRoot);
 
   // Copy static files/folders
@@ -47,7 +48,7 @@ try{
     if(fs.existsSync(src)){
       const dest = path.join(distRoot, item);
       copyRecursive(src, dest);
-      console.log('Copied', item);
+      logger.log(`Copied ${item}`, 'Loading');
     }
   }
 
@@ -57,13 +58,13 @@ try{
     const rel = path.relative(projectRoot, src);
     const dest = path.join(distRoot, rel);
     mkdirp(path.dirname(dest));
-    console.log('Obfuscating', rel);
+    logger.log(`Obfuscating ${rel}`, 'Loading');
     const cmd = `npx javascript-obfuscator "${src}" --output "${dest}" --compact true --self-defending true`;
     execSync(cmd, { stdio: 'inherit' });
   }
 
-  console.log('Build complete. Dist ready at', distRoot);
-}catch(err){
-  console.error('Build failed:', err.message || err);
+  logger.log('Build complete. Dist ready at ' + distRoot, 'Logs');
+} catch(err){
+  logger.log('Build failed:', 'Error');
   process.exit(1);
 }
