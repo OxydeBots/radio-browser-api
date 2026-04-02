@@ -40,6 +40,29 @@ curl http://localhost:3000/countries?lang=pt
 2. Copy the structure from `languages/[code].json` and translate the messages
 3. Restart the server - the language is loaded automatically
 
+## Obfuscation / Build (dist)
+
+- **But**: Generate an obfuscated version of the server in `dist/` to run the application from the `dist` folder.
+- Install the dependencies (the `devDependency` `javascript-obfuscator` is already declared in `package.json`):
+
+```bash
+npm install
+```
+
+- Generate the obfuscated file `dist/server.js`:
+
+```bash
+npm run build:obfuscate
+```
+
+- Launch the obfuscated version:
+
+```bash
+npm run start:dist
+```
+
+The `build:obfuscate` script creates the `dist/` folder (if it doesn't exist) and writes an obfuscated version of `server.js` to `dist/server.js`.
+
 ## Configuration
 
 - **IP Whitelist**: Modify the `allowedIPs` array in `server.js` to authorize only certain IP addresses. By default, localhost is allowed.
