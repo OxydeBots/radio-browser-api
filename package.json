@@ -6,8 +6,7 @@
     "start": "node server.js",
     "start:dist": "node dist/server.js",
     "build:obfuscate": "npm run build:dist",
-    "build:dist": "node scripts/build-dist.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dist": "node scripts/build-dist.js"
   },
   "author": "Oxyde",
   "license": "ISC",
